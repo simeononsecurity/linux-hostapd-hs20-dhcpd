@@ -110,7 +110,7 @@ setup_iptables() {
 # Function to configure DHCP server
 configure_dhcp() {
     log "Configuring DHCP server..."
-    cat > "/etc/dhcpd.conf" <<EOF
+    cat > "/etc/dhcp/dhcpd.conf" <<EOF
 option domain-name-servers ${PRI_DNS}, ${SEC_DNS};
 option subnet-mask 255.255.255.0;
 option routers ${AP_ADDR};
@@ -123,7 +123,7 @@ EOF
 # Function to start DHCP server
 start_dhcp() {
     log "Starting DHCP server..."
-    dhcpd ${INTERFACE}
+    dhcpd ${INTERFACE} &
 }
 
 # Function to start hostapd
