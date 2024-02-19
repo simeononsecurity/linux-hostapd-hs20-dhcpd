@@ -15,7 +15,7 @@ iw list
 Look for "AP" under "Supported interface modes". Additionally, set your country's Wi-Fi regulations to comply with local laws. For example, for Spain, you would set:
 
 ```shell
-iw reg set ES
+iw reg set US
 ```
 
 ## Build and Run
