@@ -17,7 +17,7 @@ RUN apk update && \
 
 # Add the startup script
 COPY docker-init.sh docker-init.sh
-RUN chmod +x healthcheck.sh
+RUN chmod +x docker-init.sh
 
 # Health check script
 COPY healthcheck.sh healthcheck.sh
