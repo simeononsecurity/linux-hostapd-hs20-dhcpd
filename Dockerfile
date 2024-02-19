@@ -17,13 +17,14 @@ RUN apk update && \
 
 # Add the startup script
 COPY docker-init.sh docker-init.sh
+RUN chmod +x healthcheck.sh
 
 # Health check script
 COPY healthcheck.sh healthcheck.sh
 RUN chmod +x healthcheck.sh
 
 # Specify the entrypoint script
-ENTRYPOINT ["docker-init.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "while true; do /docker-init.sh; sleep 1; done"]
 
 # Healthcheck instruction
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
