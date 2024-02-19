@@ -24,7 +24,7 @@ COPY healthcheck.sh healthcheck.sh
 RUN chmod +x healthcheck.sh
 
 # Specify the entrypoint script
-ENTRYPOINT ["/bin/sh", "-c", "while true; do /docker-init.sh; sleep 1; done"]
+ENTRYPOINT ["docker-init.sh"]
 
 # Healthcheck instruction
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
