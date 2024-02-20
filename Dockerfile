@@ -11,7 +11,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -fy build-essential git pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev libreadline-dev libdbus-1-dev && \
     git clone git://git.launchpad.net/ubuntu/+source/wpa /wpa
 
-WORKDIR /wpa
+WORKDIR /wpa/hostapd
 
 COPY hostapd-build.conf .config
 
