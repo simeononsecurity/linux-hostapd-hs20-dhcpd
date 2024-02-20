@@ -33,7 +33,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install runtime dependencies and clean up in a single RUN command to reduce image size
 RUN apt-get update && \
-    apt-get install -y bash iptables isc-dhcp-server iproute2 && \
+    apt-get install -y hostapd bash iptables isc-dhcp-server iproute2 libnl-3-dev libnl-genl-3-dev libssl-dev&& \
     echo "" > /var/lib/dhcp/dhcpd.leases && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
