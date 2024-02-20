@@ -10,6 +10,7 @@ This Docker container facilitates the deployment of a wireless access point (hos
 - Minimum linux kernel for master (AP) and AP/VLAN modes = 5.19
   - Verify using `uname -r`
   - Ideally, you should get your linux kernel to 6.1 or 6.6 if possible. Consult your OS maintainers.
+  - See the [USB WiFi - Linux Kernel Support Matrix](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Chipsets.md)
 - Minimum of a WiFi 5/6 and AP Mode Capable WiFi Device
   - Drivers and Firmware for the device are installed and working on your Host OS. 
 - 1-2 Spare USB Ports
@@ -66,11 +67,11 @@ Examples:
 - **SUBNET**: Defines the network subnet (e.g., 192.168.200.0).
 - **AP_ADDR**: Specifies the access point's IP address (e.g., 192.168.200.1).
 - **SSID**: Sets the SSID of the Wi-Fi network.
-- **WPA_PASSPHRASE**: The WPA2 passphrase for securing the Wi-Fi network.
 - **HW_MODE**: Specifies the Wi-Fi hardware mode (e.g., `g` for 2.4 GHz).
 - **DRIVER**: Sets the Wi-Fi driver, defaulting to `nl80211`.
 - **HT_CAPAB**: Defines 802.11n HT capabilities.
-- **MODE**: Operation mode (`host` or `guest`), with `host` being the default.
+
+> See [CONFIG.MD](CONFIG.MD) for the complete list.
 
 ## Health Checks
 
