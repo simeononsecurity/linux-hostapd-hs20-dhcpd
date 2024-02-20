@@ -8,13 +8,14 @@ LABEL stage=builder
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install build dependencies
-RUN apt-get update && \
-    apt-get install -fy build-essential git pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev libreadline-dev libdbus-1-dev && \
-    git clone git://git.launchpad.net/ubuntu/+source/wpa /wpa && \
+RUN apt-get update && apt-get install -fy build-essential git pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev libreadline-dev libdbus-1-dev && \
+    git clone git://git.launchpad.net/ubuntu/+source/wpa /wpa
 
 WORKDIR /wpa
 
 COPY hostapd-build.conf .config
+
+RUN make
 
 # Second stage: Production environment
 FROM ubuntu:latest
