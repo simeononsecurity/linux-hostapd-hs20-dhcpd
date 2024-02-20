@@ -58,6 +58,14 @@ The container can be customized with several environment variables:
 
 The container includes health checks to ensure `hostapd` and `dhcpd` are running correctly and that the specified network interface is operational.
 
+## Docker Host OS WiFi Driver Script
+
+The script `wifi-firmware.sh` is a Bash utility designed for downloading and installing firmware files for various WiFi chipsets from MediaTek (such as mt7925, mt7922, mt7961, mt7662, mt7610) and Realtek (rtw88 series).\
+
+The script automates the process of creating the necessary directories (if they do not already exist), downloading firmware files from the specified URLs using `wget`, and copying them to the appropriate locations in `/lib/firmware`. This setup is crucial for ensuring that the Linux system recognizes and correctly operates the WiFi hardware. 
+
+To use the script, simply execute it with Bash in a Linux environment that has internet access. It requires `sudo` privileges to create directories and copy files into the system's firmware directory. This script streamlines the firmware installation process for supported WiFi devices, making it an essential tool for system administrators and users looking to manually update or install WiFi drivers on their Linux systems.
+
 ## License
 
 No license is given at this time until we decide what needs to happen. All rights reserved.
