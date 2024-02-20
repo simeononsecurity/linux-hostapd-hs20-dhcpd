@@ -24,7 +24,7 @@ if [ -z "${INTERFACE}" ]; then
 fi
 
 # Set default values for environment variables
-: ${INTERFACE:=${INTERFACE}}
+: ${INTERFACE:=wlan1}
 : ${SUBNET:=192.168.200.0}
 : ${AP_ADDR:=192.168.200.1}
 : ${PRI_DNS:=1.1.1.2}
@@ -103,7 +103,7 @@ fi
 : ${SSID:=Orion}
 : ${BRIDGE:=}
 : ${WDS_BRIDGE:=}
-: ${TIME_ZONE:=}
+#: ${TIME_ZONE:=}
 #: ${BSS_TRANSITION:=1}
 : ${RRM_NEIGHBOR_REPORT:=1}
 : ${RRM_BEACON_REPORT:=1}
@@ -167,6 +167,7 @@ hw_mode=${HW_MODE}
 beacon_int=${BEACON_INT}
 channel=${CHANNEL}
 ${CHANLIST+"chanlist=${CHANLIST}"}
+interface=${INTERFACE}
 
 
 tx_queue_data2_burst=${TX_QUEUE_DATA2_BURST}
@@ -182,7 +183,6 @@ ${VHT_ENABLED+"ieee80211ac=1"}
 ${VHT_CAPAB+"vht_capab=${VHT_CAPAB}"}
 ${IEEE80211AX+"ieee80211ax=${IEEE80211AX}"}
 
-interface=wlan1
 ctrl_interface=${CTRL_INTERFACE}
 ap_isolate=${AP_ISOLATE}
 bss_load_update_period=${BSS_LOAD_UPDATE_PERIOD}
@@ -216,7 +216,7 @@ ssid=${SSID}
 
 ${BRIDGE+"bridge=${BRIDGE}"}
 ${WDS_BRIDGE+"wds_bridge=${WDS_BRIDGE}"}
-${TIME_ZONE+"time_zone=${TIME_ZONE}"}
+#${TIME_ZONE+"time_zone=${TIME_ZONE}"}
 
 #bss_transition=${BSS_TRANSITION}
 rrm_neighbor_report=${RRM_NEIGHBOR_REPORT}
@@ -311,8 +311,8 @@ setup_iptables() {
 # Function to configure DHCP server
 configure_dhcp() {
     log "Configuring DHCP server..."
-    mkdir /run/dhcp/
-    touch /run/dhcp/dhcpd.pid
+    [ ! -d /run/dhcp/ ] && mkdir /run/dhcp/
+    [ ! -f /run/dhcp/dhcpd.pid ] && touch /run/dhcp/dhcpd.pid
     cat > "/etc/dhcp/dhcpd.conf" <<EOF
 option domain-name-servers ${PRI_DNS}, ${SEC_DNS};
 option subnet-mask 255.255.255.0;
