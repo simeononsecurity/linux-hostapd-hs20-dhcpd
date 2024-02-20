@@ -314,6 +314,7 @@ configure_dhcp() {
     log "Configuring DHCP server..."
     [ ! -d /run/dhcp/ ] && mkdir /run/dhcp/
     [ ! -f /run/dhcp/dhcpd.pid ] && touch /run/dhcp/dhcpd.pid
+    [ ! -f /var/lib/dhcp/dhcpd.leases ] && touch /var/lib/dhcp/dhcpd.leases
     cat > "/etc/dhcp/dhcpd.conf" <<EOF
 option domain-name-servers ${PRI_DNS}, ${SEC_DNS};
 option subnet-mask 255.255.255.0;
