@@ -263,6 +263,7 @@ setup_interface() {
     ip link set ${INTERFACE} up
     ip addr flush dev ${INTERFACE}
     ip addr add ${AP_ADDR}/24 dev ${INTERFACE}
+    iw reg set ${COUNTRY_CODE}
     cat /proc/sys/net/ipv4/ip_dynaddr
     cat /proc/sys/net/ipv4/ip_forward
 }
@@ -334,7 +335,6 @@ start_dhcp() {
 # Function to start hostapd
 start_hostapd() {
     log "Starting HostAP daemon..."
-    iw reg set ${COUNTRY_CODE}
     /usr/local/bin/hostapd -dd /etc/hostapd.conf &
 }
 
