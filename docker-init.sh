@@ -332,7 +332,7 @@ start_dhcp() {
 # Function to start hostapd
 start_hostapd() {
     log "Starting HostAP daemon..."
-    /usr/sbin/hostapd /etc/hostapd.conf &
+    /usr/local/bin/hostapd /etc/hostapd.conf &
 }
 
 # Function to cleanup on exit
