@@ -39,7 +39,6 @@ fi
 : ${LOGGER_STDOUT:=127}
 : ${LOGGER_STDOUT_LEVEL:=2}
 : ${COUNTRY_CODE:=US}
-iw reg set ${COUNTRY_CODE}
 : ${IEEE80211D:=1}
 : ${IEEE80211H:=1}
 : ${HW_MODE:=a}
@@ -61,8 +60,8 @@ fi
 : ${IEEE80211AC:=1}
 : ${VHT_OPER_CHWIDTH:=1}
 : ${VHT_OPER_CENTR_FREQ_SEG0_IDX:=-6}
-: ${VHT_CAPAB:=[RXLDPC][SHORT-GI-80][SHORT-GI-160][TX-STBC-2BY1][SU-BEAMFORMER][SU-BEAMFORMEE][MU-BEAMFORMER][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][SOUNDING-DIMENSION-4][BF-ANTENNA-4][VHT160][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]}
-#: ${IEEE80211AX:1}
+: ${VHT_CAPAB:=[RXLDPC][SHORT-GI-80][VHT80]}
+: ${IEEE80211AX:=0}
 
 # Basic Service Set (BSS) Configuration
 : ${BSS:=phy1-ap0}
@@ -313,6 +312,7 @@ setup_iptables() {
 configure_dhcp() {
     log "Configuring DHCP server..."
     [ ! -d /run/dhcp/ ] && mkdir /run/dhcp/
+    [ ! -d /var/lib/dhcp/ ] && mkdir /var/lib/dhcp/
     [ ! -f /run/dhcp/dhcpd.pid ] && touch /run/dhcp/dhcpd.pid
     [ ! -f /var/lib/dhcp/dhcpd.leases ] && touch /var/lib/dhcp/dhcpd.leases
     cat > "/etc/dhcp/dhcpd.conf" <<EOF
@@ -334,7 +334,8 @@ start_dhcp() {
 # Function to start hostapd
 start_hostapd() {
     log "Starting HostAP daemon..."
-    /usr/local/bin/hostapd /etc/hostapd.conf &
+    iw reg set ${COUNTRY_CODE}
+    /usr/local/bin/hostapd -dd /etc/hostapd.conf &
 }
 
 # Function to cleanup on exit

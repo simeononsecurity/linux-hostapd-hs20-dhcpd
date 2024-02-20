@@ -143,7 +143,7 @@ This docker container includes defaults and assumptions in mind for specific har
 
 #### VHT_CAPAB
 - **Purpose**: Defines the Very High Throughput (VHT) capabilities of the 802.11ac network.
-- **Default Value**: `[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMER][SU-BEAMFORMEE][MU-BEAMFORMER][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][SOUNDING-DIMENSION-2][BF-ANTENNA-2][VHT80]`
+- **Default Value**: `[RXLDPC][SHORT-GI-80][VHT80]`
 - **Example**: `VHT_CAPAB=[SHORT-GI-80][SU-BEAMFORMEE]`
 
 #### IEEE80211AX
