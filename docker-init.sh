@@ -55,13 +55,13 @@ fi
 
 # IEEE 802.11n/ac/ax Configuration
 : ${IEEE80211N:=1}
-: ${HT_COEX:=0}
+#: ${HT_COEX:=0}
 : ${HT_CAPAB:=[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]}
 : ${IEEE80211AC:=1}
 : ${VHT_OPER_CHWIDTH:=1}
 : ${VHT_OPER_CENTR_FREQ_SEG0_IDX:=-6}
 : ${VHT_CAPAB:=[RXLDPC][SHORT-GI-80][SHORT-GI-160][TX-STBC-2BY1][SU-BEAMFORMER][SU-BEAMFORMEE][MU-BEAMFORMER][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][SOUNDING-DIMENSION-4][BF-ANTENNA-4][VHT160][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]}
-: ${IEEE80211AX:=0}
+: ${IEEE80211AX:}
 
 # Basic Service Set (BSS) Configuration
 : ${BSS:=phy1-ap0}
@@ -103,7 +103,6 @@ fi
 : ${SSID:=Orion}
 : ${BRIDGE:=}
 : ${WDS_BRIDGE:=}
-: ${SNOOP_IFACE:=}
 : ${TIME_ZONE:=}
 : ${BSS_TRANSITION:=1}
 : ${RRM_NEIGHBOR_REPORT:=1}
@@ -129,7 +128,6 @@ fi
 : ${VENUE_URL:=1:https://orionwifi.com}
 : ${DOMAIN_NAME:=orion.area120.com}
 : ${ANQP_3GPP_CELL_NET:=310,150;310,280;310,410;313,100}
-: ${QOS_MAP_SET:=}
 : ${HS20:=1}
 : ${DISABLE_DGAF:=1}
 : ${OSEN:=0}
@@ -174,7 +172,7 @@ ${CHANLIST+"chanlist=${CHANLIST}"}
 tx_queue_data2_burst=${TX_QUEUE_DATA2_BURST}
 
 ieee80211n=${IEEE80211N}
-ht_coex=${HT_COEX}
+#ht_coex=${HT_COEX}
 ${HT_ENABLED+"ieee80211n=1"}
 ${HT_CAPAB+"ht_capab=${HT_CAPAB}"}
 ieee80211ac=${IEEE80211AC}
@@ -182,7 +180,7 @@ vht_oper_chwidth=${VHT_OPER_CHWIDTH}
 vht_oper_centr_freq_seg0_idx=${VHT_OPER_CENTR_FREQ_SEG0_IDX}
 ${VHT_ENABLED+"ieee80211ac=1"}
 ${VHT_CAPAB+"vht_capab=${VHT_CAPAB}"}
-ieee80211ax=${IEEE80211AX}
+${IEEE80211AX+"ieee80211ax=${IEEE80211AX}"}
 
 interface=wlan1
 ctrl_interface=${CTRL_INTERFACE}
@@ -218,9 +216,7 @@ ssid=${SSID}
 
 ${BRIDGE+"bridge=${BRIDGE}"}
 ${WDS_BRIDGE+"wds_bridge=${WDS_BRIDGE}"}
-${SNOOP_IFACE+"snoop_iface=${SNOOP_IFACE}"}
 ${TIME_ZONE+"time_zone=${TIME_ZONE}"}
-${QOS_MAP_SET+"qos_map_set=${QOS_MAP_SET}"}
 
 bss_transition=${BSS_TRANSITION}
 rrm_neighbor_report=${RRM_NEIGHBOR_REPORT}

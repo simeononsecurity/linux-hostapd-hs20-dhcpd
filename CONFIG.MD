@@ -116,10 +116,10 @@ This docker container includes defaults and assumptions in mind for specific har
 - **Default Value**: `1` (enabled).
 - **Example**: `IEEE80211N=0` (to disable).
 
-#### HT_COEX
+<!-- #### HT_COEX
 - **Purpose**: Enables or disables 802.11n coexistence protection for 40 MHz channels in the 2.4 GHz band.
 - **Default Value**: `0` (disabled).
-- **Example**: `HT_COEX=1` (to enable).
+- **Example**: `HT_COEX=1` (to enable). -->
 
 #### HT_CAPAB
 - **Purpose**: Specifies the High Throughput (HT) capabilities of the 802.11n network.
@@ -148,7 +148,7 @@ This docker container includes defaults and assumptions in mind for specific har
 
 #### IEEE80211AX
 - **Purpose**: Enables or disables support for IEEE 802.11ax (Wi-Fi 6) features.
-- **Default Value**: `0` (disabled).
+- **Default Value**: `Unset` (disabled).
 - **Example**: `IEEE80211AX=1` (to enable).
 
 ## Basic Service Set (BSS) Configuration Documentation
@@ -319,10 +319,10 @@ This docker container includes defaults and assumptions in mind for specific har
 - **Default Value**: Not set
 - **Example**: `WDS_BRIDGE=br1`
 
-#### SNOOP_IFACE
+<!-- #### SNOOP_IFACE
 - **Purpose**: Specifies an interface for IGMP snooping.
 - **Default Value**: Not set
-- **Example**: `SNOOP_IFACE=eth0`
+- **Example**: `SNOOP_IFACE=eth0` -->
 
 #### TIME_ZONE
 - **Purpose**: Specifies the local timezone of the AP for time-related information broadcast.
@@ -613,10 +613,10 @@ For EAP Method types, refer to [AuthParam (Table 8-188 in IEEE Std 802.11-2012)]
 - **Default Values**: `VENUE_NAME=eng:Orion`, `VENUE_URL=1:https://orionwifi.com`, `DOMAIN_NAME=orion.area120.com`
 - **Examples**: `VENUE_NAME=eng:MyVenue`, `VENUE_URL=1:https://example.com`, `DOMAIN_NAME=example.com`
 
-#### ANQP_3GPP_CELL_NET, QOS_MAP_SET, HS20
+#### ANQP_3GPP_CELL_NET, HS20
 - **Purpose**: Configures 3GPP cellular network information, QoS map set, and enables HS2.0.
-- **Default Values**: `ANQP_3GPP_CELL_NET=310,150;310,280;310,410;313,100`, `QOS_MAP_SET` (not set), `HS20=1` (enabled)
-- **Examples**: `ANQP_3GPP_CELL_NET=310,260`, `QOS_MAP_SET=0,7;8,15;16,31`, `HS20=0` (to disable HS2.0)
+- **Default Values**: `ANQP_3GPP_CELL_NET=310,150;310,280;310,410;313,100`, `HS20=1` (enabled)
+- **Examples**: `ANQP_3GPP_CELL_NET=310,260`, `HS20=0` (to disable HS2.0)
 
 #### DISABLE_DGAF, OSEN
 - **Purpose**: Controls Downstream Group-Addressed Forwarding (DGAF) blocking and OSEN protocol support.
