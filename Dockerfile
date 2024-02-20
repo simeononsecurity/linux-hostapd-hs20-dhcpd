@@ -1,5 +1,5 @@
-# Define Alpine Base
-FROM alpine:latest
+# Define Ubuntu Base
+FROM ubuntu:latest
 
 # Set Labels
 LABEL org.opencontainers.image.source="https://github.com/simeononsecurity/linux-hostapd-hs20-dhcpd"
@@ -9,11 +9,15 @@ LABEL org.opencontainers.image.authors="simeononsecurity"
 # Set ENV Variables
 ENV container docker
 
-# Combine RUN commands to reduce layers and clear cache in the same layer to minimize image size
-RUN apk update && \
-    apk add bash hostapd iptables dhcp && \
+# Disable Prompt During Packages Installation
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Combine RUN commands to reduce layers. Use apt-get to install packages in Ubuntu.
+RUN apt-get update && \
+    apt-get install -y bash hostapd iptables isc-dhcp-server && \
     echo "" > /var/lib/dhcp/dhcpd.leases && \
-    rm -rf /var/cache/apk/*
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Add the startup script
 COPY docker-init.sh /bin/docker-init.sh
