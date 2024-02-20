@@ -104,7 +104,7 @@ fi
 : ${BRIDGE:=}
 : ${WDS_BRIDGE:=}
 : ${TIME_ZONE:=}
-: ${BSS_TRANSITION:=1}
+#: ${BSS_TRANSITION:=1}
 : ${RRM_NEIGHBOR_REPORT:=1}
 : ${RRM_BEACON_REPORT:=1}
 : ${WPA_DISABLE_EAPOL_KEY_RETRIES:=1}
@@ -218,7 +218,7 @@ ${BRIDGE+"bridge=${BRIDGE}"}
 ${WDS_BRIDGE+"wds_bridge=${WDS_BRIDGE}"}
 ${TIME_ZONE+"time_zone=${TIME_ZONE}"}
 
-bss_transition=${BSS_TRANSITION}
+#bss_transition=${BSS_TRANSITION}
 rrm_neighbor_report=${RRM_NEIGHBOR_REPORT}
 rrm_beacon_report=${RRM_BEACON_REPORT}
 

@@ -329,10 +329,10 @@ This docker container includes defaults and assumptions in mind for specific har
 - **Default Value**: Not set
 - **Example**: `TIME_ZONE=EST5EDT`
 
-#### BSS_TRANSITION
+<!-- #### BSS_TRANSITION
 - **Purpose**: Enables or disables support for BSS Transition Management.
 - **Default Value**: `1` (enabled)
-- **Example**: `BSS_TRANSITION=0` (to disable)
+- **Example**: `BSS_TRANSITION=0` (to disable) -->
 
 #### RRM_NEIGHBOR_REPORT and RRM_BEACON_REPORT
 - **Purpose**: Enables Radio Resource Management (RRM) features for neighbor and beacon reporting.
