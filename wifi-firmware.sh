@@ -29,7 +29,7 @@ declare -A destination_dirs=(
     [mt7922]="/lib/firmware/mediatek"
     [mt7961]="/lib/firmware/mediatek"
     [mt7610]="/lib/firmware/mediatek"
-    [mt7610]="/lib/firmware/rtw88"
+    [rtw88]="/lib/firmware/rtw88"
 )
 
 # Function to download and copy firmware files for a given device
