@@ -123,7 +123,7 @@ This docker container includes defaults and assumptions in mind for specific har
 
 #### HT_CAPAB
 - **Purpose**: Specifies the High Throughput (HT) capabilities of the 802.11n network.
-- **Default Value**: `[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]`
+- **Default Value**: `[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1]`
 - **Example**: `HT_CAPAB=[HT40-][SHORT-GI-20]`
 
 #### IEEE80211AC
@@ -143,7 +143,7 @@ This docker container includes defaults and assumptions in mind for specific har
 
 #### VHT_CAPAB
 - **Purpose**: Defines the Very High Throughput (VHT) capabilities of the 802.11ac network.
-- **Default Value**: `[RXLDPC][SHORT-GI-80][SHORT-GI-160][TX-STBC-2BY1][SU-BEAMFORMER][SU-BEAMFORMEE][MU-BEAMFORMER][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][SOUNDING-DIMENSION-4][BF-ANTENNA-4][VHT160][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]`
+- **Default Value**: `[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMER][SU-BEAMFORMEE][MU-BEAMFORMER][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][SOUNDING-DIMENSION-2][BF-ANTENNA-2][VHT80]`
 - **Example**: `VHT_CAPAB=[SHORT-GI-80][SU-BEAMFORMEE]`
 
 #### IEEE80211AX
