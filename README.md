@@ -1,10 +1,19 @@
-Based on the updated Dockerfile and scripts we've created, here's a revised version of the README.md to reflect the changes and improvements made:
-
 # Hotspot 2.0 Docker Container: HostAPD + DHCP Server
 
 This Docker container facilitates the deployment of a wireless access point (hostap) and DHCP server, supporting Hotspot 2.0 on Linux systems. It is designed to operate in both host networking mode and with the network interface attached directly to the container's network namespace.
 
+**This is an advanced docker container**
+
+> While we take strides to simplify the process of this container, not everything can be simplified or automated. If you are not comfortable reading documentation or working with and troubleshooting on linux, please use an [OpenWRT](https://simeononsecurity.com/guides/unlock-seamless-connectivity-hotspot-2.0-openwrt/) based device or a turn-key solution instead. 
+
 ## Requirements
+- Minimum linux kernel for master (AP) and AP/VLAN modes = 5.19
+  - Verify using `uname -r`
+  - Ideally, you should get your linux kernel to 6.1 or 6.6 if possible. Consult your OS maintainers.
+- Minimum of a WiFi 5/6 and AP Mode Capable WiFi Device
+  - Drivers and Firmware for the device are installed and working on your Host OS. 
+- 1-2 Spare USB Ports
+- Administrative SSH Access to the Host Device
 
 Before deployment, ensure your system's Wi-Fi drivers are correctly installed and that your Wi-Fi adapter supports AP mode. You can verify this with the following command:
 
@@ -18,19 +27,26 @@ Look for "AP" under "Supported interface modes". Additionally, set your country'
 iw reg set US
 ```
 
+### Recommended Hardware
+
+This docker container includes defaults and assumptions in mind for specific hardware adapters. They are recommended below. If you choose to use another adapter, be aware that you'll need to read the [hostapd.conf documentation](https://web.mit.edu/freebsd/head/contrib/wpa/hostapd/hostapd.conf) and look at `CONFIG.md` and `docker-init.sh` to figure out what config items you may need to change. 
+
+- [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
+- [NETGEAR WiFi AC1200 (A6210)](https://amzn.to/3T5FdwX)
+
 ## Build and Run
 
 ### Using Host Networking:
 
-To run the container in host networking mode, ensuring it has full access to the host's network interfaces, use the following command:
+To run the container in host networking mode, ensuring it has full access to the host's network interfaces, use the following command as an example:
 
 ```shell
-sudo docker run -i -t -e INTERFACE=wlan1 -e OUTGOINGS=wlan0 --net host --privileged simeononsecurity/linux-hostapd-hs20-dhcpd
+sudo docker run -i -t -e INTERFACE=wlan1 -e OUTGOINGS=eth0 --net host --privileged simeononsecurity/linux-hostapd-hs20-dhcpd
 ```
 
 ### Using Network Interface Reattaching:
 
-For scenarios where you need to attach a network interface directly to the container, the following command can be used:
+For scenarios where you need to attach a network interface directly to the container, the following command can be used as an example:
 
 ```shell
 sudo docker run -d -t -e INTERFACE=wlan0 -v /var/run/docker.sock:/var/run/docker.sock --privileged simeononsecurity/linux-hostapd-hs20-dhcpd
@@ -41,6 +57,8 @@ This method requires access to the Docker socket to manage network interfaces dy
 ## Environment Variables
 
 The container can be customized with several environment variables:
+
+Examples:
 
 - **INTERFACE**: The name of the Wi-Fi interface to use for the access point.
 - **OUTGOINGS**: Specifies the outgoing network interface for internet access.
