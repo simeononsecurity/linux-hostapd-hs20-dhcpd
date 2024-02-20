@@ -1,7 +1,7 @@
 # hostapd Configuration and Env Variable Documentation
 
 ## Recommended Hardare
-This docker container includes defaults and assumptions in mind for specific hardware adapters. They are recommended below. If you choose to use another adapter, be aware that you'll need to read the [hostapd.conf documentation](https://web.mit.edu/freebsd/head/contrib/wpa/hostapd/hostapd.conf) and look at `CONFIG.md` and `docker-init.sh` to figure out what config items you may need to change. 
+This docker container includes defaults and assumptions in mind for specific hardware adapters. They are recommended below. If you choose to use another adapter, be aware that you'll need to read the [hostapd.conf documentation](https://web.mit.edu/freebsd/head/contrib/wpa/hostapd/hostapd.conf) and look at `CONFIG.md` and `docker-init.sh` to figure out what config items you may need to change and [this documentation](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Chipsets.md) to see what kernel level you need to be at.
 
 - [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
 - [NETGEAR WiFi AC1200 (A6210)](https://amzn.to/3T5FdwX)
