@@ -39,6 +39,7 @@ fi
 : ${LOGGER_STDOUT:=127}
 : ${LOGGER_STDOUT_LEVEL:=2}
 : ${COUNTRY_CODE:=US}
+iw reg set ${COUNTRY_CODE}
 : ${IEEE80211D:=1}
 : ${IEEE80211H:=1}
 : ${HW_MODE:=a}
