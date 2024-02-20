@@ -14,7 +14,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Combine RUN commands to reduce layers. Use apt-get to install packages in Ubuntu.
 RUN apt-get update && \
-    apt-get install -y bash hostapd iptables isc-dhcp-server && \
+    apt-get install -y bash hostapd iptables isc-dhcp-server iproute2 && \
     echo "" > /var/lib/dhcp/dhcpd.leases && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
