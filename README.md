@@ -7,7 +7,7 @@ This Docker container facilitates the deployment of a wireless access point (hos
 > While we take strides to simplify the process of this container, not everything can be simplified or automated. If you are not comfortable reading documentation or working with and troubleshooting on linux, please use an [OpenWRT](https://simeononsecurity.com/guides/unlock-seamless-connectivity-hotspot-2.0-openwrt/) based device or a turn-key solution instead. 
 
 ## Requirements
-- Minimum linux kernel for master (AP) and AP/VLAN modes = 5.19
+- Minimum linux kernel for WiFi 6 device based master (AP) and AP/VLAN modes = 5.19
   - Verify using `uname -r`
   - Ideally, you should get your linux kernel to 6.1 or 6.6 if possible. Consult your OS maintainers.
   - See the [USB WiFi - Linux Kernel Support Matrix](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Chipsets.md)
@@ -46,6 +46,15 @@ This docker container includes defaults and assumptions in mind for specific har
     - Requires Kernel Level 6.6 at least. Ideally, 6.7. Verify with `uname -r`. *This is problematic on ARM based devices, it's unlikely that your arm device supports any kernel above 6.1.*
 
 > *For a list of other documented adapters that have support on Linux See the [USB-WiFi Documentation Repo](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md)*. Be aware though, that choosing an adapter that isn't on the list above, you'll need ot identify the devices capabilities before running the container.
+
+## Updating the Linux Kernel
+
+Updaiting the linux kernel is an involved process. It won't work on every system. Consult your OS manufatures documentation and website for more details.
+
+However if you're you're running ubuntu on a non-ARM based device we recommend the following articles for instructions on how to update the linux kernel.
+
+- https://phoenixnap.com/kb/how-to-update-kernel-ubuntu
+- https://itsfoss.com/upgrade-linux-kernel-ubuntu/
 
 ## Build and Run
 
