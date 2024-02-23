@@ -33,7 +33,11 @@ iw reg set US
 This docker container includes defaults and assumptions in mind for specific hardware adapters. They are recommended below. If you choose to use another adapter, be aware that you'll need to read the [hostapd.conf documentation](https://web.mit.edu/freebsd/head/contrib/wpa/hostapd/hostapd.conf) and look at `CONFIG.md` and `docker-init.sh` to figure out what config items you may need to change. 
 
 - [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
+  - Requires at least kernel level 5.2.
+  - Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]"``` with your docker configuration.
 - [NETGEAR WiFi AC1200 (A6210)](https://amzn.to/3T5FdwX)
+  - Requires at least kernel level 5.2.
+  - Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][MAX-A-MPDU-LEN-EXP3]"``` with your docker configuration.
 
 ## Build and Run
 
