@@ -38,12 +38,15 @@ This docker container includes defaults and assumptions in mind for specific har
 - [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
     - We love it because it has external and replaceable antennas and it supports either 2.4Ghz/5Ghz on WiFi 6. Once hostapd adds support, the device will also support the 6 Ghz band in the future.
     - Requires Linux Kernel Level 5.2 at least. Verify with `uname -r`.
+    - Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]"``` with your docker configuration.
 - [NETGEAR WiFi AC1200 (A6210)](https://amzn.to/3T5FdwX)
     - We love it because it is cheap and it is the easiest to install out of any of the external adapters. Not to mention it is the easiest to get your hands on. It lacks external antennas however. 
     - Requires Linux Kernel Level 5.2 at least. Verify with `uname -r`.
+    - Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][MAX-A-MPDU-LEN-EXP3]"``` with your docker configuration.
 - [ALFA AWUS036AXML](https://amzn.to/3vYvHT4)
     - We love it because it has external and replaceable antennas and it has WiFi 7 and 6GHz support as soon as Linux supports it. Till then it is 2.4Ghz/5Ghz and WiFi 6 capable. 
     - Requires Kernel Level 6.6 at least. Ideally, 6.7. Verify with `uname -r`. *This is problematic on ARM based devices, it's unlikely that your arm device supports any kernel above 6.1.*
+-  Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]"``` with your docker configuration.
 
 > *For a list of other documented adapters that have support on Linux See the [USB-WiFi Documentation Repo](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md)*. Be aware though, that choosing an adapter that isn't on the list above, you'll need ot identify the devices capabilities before running the container.
 
