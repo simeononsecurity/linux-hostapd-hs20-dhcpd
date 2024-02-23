@@ -50,6 +50,28 @@ This docker container includes defaults and assumptions in mind for specific har
 
 > *For a list of other documented adapters that have support on Linux See the [USB-WiFi Documentation Repo](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md)*. Be aware though, that choosing an adapter that isn't on the list above, you'll need ot identify the devices capabilities before running the container.
 
+#### Recomended alternative chipsets.
+
+[USB WiFi devices recommended for Linux](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Chipsets.md):
+
+| Chipset           | Interface | Standard | Maximum Channel Width | Linux In-Kernel Driver | AP Mode | Monitor Mode | Recommended For Linux |
+|-------------------|-----------|----------|-----------------------|------------------------|---------|--------------|-----------------------|
+| Mediatek MT7925   | USB3      | WiFi 7   | 160                   | ✔️ 6.7+                | ✔️       | ✔️            | Yes [4]               |
+| Mediatek MT7921au | USB3      | WiFi 6E  | 80                    | ✔️ 5.18+               | ✔️       | ✔️            | Yes                   |
+| Mediatek MT7612u  | USB3      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
+| Realtek RTL8812bu | USB3      | WiFi 5   | 80                    | ✔️ 6.2+ [3]            | ✔️       | ✔️            | Yes                   |
+| Mediatek MT7610u  | USB2      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
+| Ralink RT3573     | USB2      | WiFi 4   | 40                    | ✔️ 3.12+               | ✔️       | ✔️            | Yes                   |
+| Ralink RT5572     | USB2      | WiFi 4   | 40                    | ✔️ 3.10+               | ✔️       | ✔️            | Yes                   |
+| Ralink RT3572     | USB2      | WiFi 4   | 40                    | ✔️ 2.6.31+             | ✔️       | ✔️            | Yes                   |
+| Ralink RT5372     | USB2      | WiFi 4   | 40                    | ✔️ 3.0+                | ✔️       | ✔️            | Yes                   |
+| Realtek RTL8192cu | USB2      | WiFi 4   | 40                    | ✔️ 2.6.33+             | ✔️       | ✔️            | Yes                   |
+| Ralink RT5370     | USB2      | WiFi 4   | 40                    | ✔️ 3.0+                | ✔️       | ✔️            | Yes                   |
+| Atheros AR9271    | USB2      | WiFi 4   | 40                    | ✔️ 2.6.35+             | ✔️       | ✔️            | Yes                   |
+| Ralink RT3070     | USB2      | WiFi 4   | 40                    | ✔️ 2.6.31+             | ✔️       | ✔️            | Yes                   |
+
+These are the USB WiFi devices recommended for Linux, along with their specifications and compatibility details.
+
 ## Updating the Linux Kernel
 
 Updaiting the linux kernel is an involved process. It won't work on every system. Consult your OS manufatures documentation and website for more details.
