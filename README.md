@@ -46,7 +46,7 @@ This docker container includes defaults and assumptions in mind for specific har
 - [ALFA AWUS036AXML](https://amzn.to/3vYvHT4)
     - We love it because it has external and replaceable antennas and it has WiFi 7 and 6GHz support as soon as Linux supports it. Till then it is 2.4Ghz/5Ghz and WiFi 6 capable. 
     - Requires Kernel Level 6.6 at least. Ideally, 6.7. Verify with `uname -r`. *This is problematic on ARM based devices, it's unlikely that your arm device supports any kernel above 6.1.*
--  Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]"``` with your docker configuration.
+    -  Use ```-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" -e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]"``` with your docker configuration.
 
 > *For a list of other documented adapters that have support on Linux See the [USB-WiFi Documentation Repo](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md)*. Be aware though, that choosing an adapter that isn't on the list above, you'll need ot identify the devices capabilities before running the container.
 
