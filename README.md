@@ -97,6 +97,75 @@ Examples:
 
 > See [CONFIG.MD](CONFIG.MD) for the complete list.
 
+### Suggested Configurations for Recommended Hardware
+
+#### [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
+```bash
+sudo docker pull simeononsecurity/linux-hostapd-hs20-dhcpd
+sudo docker run -td  \
+-e INTERFACE=wlx13370420xx0x \
+-e AP_ADDR=192.168.200.1 \
+-e SUBNET=192.168.200.0 \
+-e OUTGOINGS=eno1 \
+-e ACCT_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e AUTH_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e VHT_ENABLED=1 \
+-e CHANNEL=161 \
+-e SSID="Orion" \
+-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" \
+-e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]" \
+--privileged  \
+--net host \
+--name wifiap \
+--restart unless-stopped \
+-v /var/run/docker.sock:/var/run/docker.sock \
+simeononsecurity/linux-hostapd-hs20-dhcpd
+```
+
+#### [NETGEAR WiFi AC1200 (A6210)](https://amzn.to/3T5FdwX)
+```bash
+sudo docker pull simeononsecurity/linux-hostapd-hs20-dhcpd
+sudo docker run -td  \
+-e INTERFACE=wlx13370420xx0x \
+-e AP_ADDR=192.168.200.1 \
+-e SUBNET=192.168.200.0 \
+-e OUTGOINGS=eno1 \
+-e ACCT_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e AUTH_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e VHT_ENABLED=1 \
+-e CHANNEL=161 \
+-e SSID="Orion" \
+-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1]" \
+-e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][MAX-A-MPDU-LEN-EXP3]" \
+--privileged  \
+--net host \
+--name wifiap \
+--restart unless-stopped \
+-v /var/run/docker.sock:/var/run/docker.sock \
+simeononsecurity/linux-hostapd-hs20-dhcpd
+```
+#### [ALFA AWUS036AXML](https://amzn.to/3vYvHT4)
+```bash
+sudo docker pull simeononsecurity/linux-hostapd-hs20-dhcpd
+sudo docker run -td  \
+-e INTERFACE=wlx13370420xx0x \
+-e AP_ADDR=192.168.200.1 \
+-e SUBNET=192.168.200.0 \
+-e OUTGOINGS=eno1 \
+-e ACCT_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e AUTH_SERVER_ADDR="XXX.XXX.XXX.XXX" \
+-e VHT_ENABLED=1 \
+-e CHANNEL=161 \
+-e SSID="Orion" \
+-e HT_CAPAB="[HT40+][LDPC][SHORT-GI-20][SHORT-GI-40][TX-STBC][RX-STBC1][MAX-AMSDU-7935]" \
+-e VHT_CAPAB="[RXLDPC][SHORT-GI-80][TX-STBC-2BY1][SU-BEAMFORMEE][MU-BEAMFORMEE][RX-ANTENNA-PATTERN][TX-ANTENNA-PATTERN][RX-STBC-1][BF-ANTENNA-4][MAX-MPDU-11454][MAX-A-MPDU-LEN-EXP7]" \
+--privileged  \
+--net host \
+--name wifiap \
+--restart unless-stopped \
+-v /var/run/docker.sock:/var/run/docker.sock \
+simeononsecurity/linux-hostapd-hs20-dhcpd
+```
 ## Health Checks
 
 The container includes health checks to ensure `hostapd` and `dhcpd` are running correctly and that the specified network interface is operational.
