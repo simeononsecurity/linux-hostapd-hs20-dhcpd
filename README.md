@@ -61,14 +61,6 @@ This docker container includes defaults and assumptions in mind for specific har
 | Mediatek MT7612u  | USB3      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
 | Realtek RTL8812bu | USB3      | WiFi 5   | 80                    | ✔️ 6.2+ [3]            | ✔️       | ✔️            | Yes                   |
 | Mediatek MT7610u  | USB2      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
-| Ralink RT3573     | USB2      | WiFi 4   | 40                    | ✔️ 3.12+               | ✔️       | ✔️            | Yes                   |
-| Ralink RT5572     | USB2      | WiFi 4   | 40                    | ✔️ 3.10+               | ✔️       | ✔️            | Yes                   |
-| Ralink RT3572     | USB2      | WiFi 4   | 40                    | ✔️ 2.6.31+             | ✔️       | ✔️            | Yes                   |
-| Ralink RT5372     | USB2      | WiFi 4   | 40                    | ✔️ 3.0+                | ✔️       | ✔️            | Yes                   |
-| Realtek RTL8192cu | USB2      | WiFi 4   | 40                    | ✔️ 2.6.33+             | ✔️       | ✔️            | Yes                   |
-| Ralink RT5370     | USB2      | WiFi 4   | 40                    | ✔️ 3.0+                | ✔️       | ✔️            | Yes                   |
-| Atheros AR9271    | USB2      | WiFi 4   | 40                    | ✔️ 2.6.35+             | ✔️       | ✔️            | Yes                   |
-| Ralink RT3070     | USB2      | WiFi 4   | 40                    | ✔️ 2.6.31+             | ✔️       | ✔️            | Yes                   |
 
 These are the USB WiFi devices recommended for Linux, along with their specifications and compatibility details.
 
