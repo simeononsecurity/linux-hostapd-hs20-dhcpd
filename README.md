@@ -33,7 +33,7 @@ iw reg set US
 
 This docker container includes defaults and assumptions in mind for specific hardware adapters. They are recommended below. If you choose to use another adapter, be aware that you'll need to read the [hostapd.conf documentation](https://web.mit.edu/freebsd/head/contrib/wpa/hostapd/hostapd.conf) and look at `CONFIG.md` and `docker-init.sh` to figure out what config items you may need to change. 
 
-> Assuming you're already on the supported kernel levels for the device, run the [wifi-firmware.sh](wifi-firmware.sh) script on the docker host and reboot to install the appropriate drivers and firmware for all of our supported devices below.
+> Assuming you're already on the supported kernel levels for the device, run the [`wifi-firmware.sh`](wifi-firmware.sh) script on the docker host and reboot to install the appropriate drivers and firmware for all of our supported devices below.
 
 - [ALFA AWUS036AXM](https://amzn.to/3Texv3H)
     - We love it because it has external and replaceable antennas and it supports either 2.4Ghz/5Ghz on WiFi 6. Once hostapd adds support, the device will also support the 6 Ghz band in the future.
@@ -57,10 +57,10 @@ This docker container includes defaults and assumptions in mind for specific har
 | Chipset           | Interface | Standard | Maximum Channel Width | Linux In-Kernel Driver | AP Mode | Monitor Mode | Recommended For Linux |
 |-------------------|-----------|----------|-----------------------|------------------------|---------|--------------|-----------------------|
 | Mediatek MT7925   | USB3      | WiFi 7   | 160                   | ✔️ 6.7+                | ✔️       | ✔️            | Yes [4]               |
-| Mediatek MT7921au | USB3      | WiFi 6E  | 80                    | ✔️ 5.18+               | ✔️       | ✔️            | Yes                   |
-| Mediatek MT7612u  | USB3      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
-| Realtek RTL8812bu | USB3      | WiFi 5   | 80                    | ✔️ 6.2+ [3]            | ✔️       | ✔️            | Yes                   |
-| Mediatek MT7610u  | USB2      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
+| [Mediatek MT7921au](https://amzn.to/3IaVJ8s) | USB3      | WiFi 6E  | 80                    | ✔️ 5.18+               | ✔️       | ✔️            | Yes                   |
+| [Mediatek MT7612u](https://amzn.to/49K0ly6)  | USB3      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
+| [Realtek RTL8812bu](https://amzn.to/3wqObvz) | USB3      | WiFi 5   | 80                    | ✔️ 6.2+ [3]            | ✔️       | ✔️            | Yes                   |
+| [Mediatek MT7610u](https://amzn.to/3IdyFGc)  | USB2      | WiFi 5   | 80                    | ✔️ 4.19+               | ✔️       | ✔️            | Yes                   |
 
 These are the USB WiFi devices recommended for Linux, along with their specifications and compatibility details.
 
@@ -182,11 +182,11 @@ simeononsecurity/linux-hostapd-hs20-dhcpd
 ```
 ## Health Checks
 
-The container includes health checks to ensure `hostapd` and `dhcpd` are running correctly and that the specified network interface is operational.
+The container includes health checks to ensure [`hostapd`](https://w1.fi/hostapd/) and [`dhcpd`](https://en.wikipedia.org/wiki/DHCPD) are running correctly and that the specified network interface is operational.
 
 ## Docker Host OS WiFi Driver Script
 
-The script `wifi-firmware.sh` is a Bash utility designed for downloading and installing firmware files for various WiFi chipsets from MediaTek (such as mt7925, mt7922, mt7961, mt7662, mt7610) and Realtek (rtw88 series).\
+The script [`wifi-firmware.sh`](wifi-firmware.sh) is a Bash utility designed for downloading and installing firmware files for various WiFi chipsets from MediaTek (such as mt7925, mt7922, mt7961, mt7662, mt7610) and Realtek (rtw88 series).\
 
 The script automates the process of creating the necessary directories (if they do not already exist), downloading firmware files from the specified URLs using `wget`, and copying them to the appropriate locations in `/lib/firmware`. This setup is crucial for ensuring that the Linux system recognizes and correctly operates the WiFi hardware. 
 
@@ -199,6 +199,6 @@ No license is given at this time until we decide what needs to happen. All right
 ## Acknowledgments
 
 - Original inspiration from [sdelrio's RPi-hostap](https://github.com/sdelrio/rpi-hostap) implementation.
-- Docker container and health check enhancements by SimeonOnSecurity.
+- Docker container and health check enhancements by [SimeonOnSecurity](https://github.com/simeononsecurity).
 
-For additional details and configurations, refer to the Dockerfile and the accompanying `docker-init.sh` and `healthcheck.sh` scripts provided with this container.
+For additional details and configurations, refer to the Dockerfile and the accompanying [`docker-init.sh`](docker-init.sh) and [`healthcheck.sh`](yyyyyy) scripts provided with this container.
