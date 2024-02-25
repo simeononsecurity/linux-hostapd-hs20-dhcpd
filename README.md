@@ -201,4 +201,4 @@ No license is given at this time until we decide what needs to happen. All right
 - Original inspiration from [sdelrio's RPi-hostap](https://github.com/sdelrio/rpi-hostap) implementation.
 - Docker container and health check enhancements by [SimeonOnSecurity](https://github.com/simeononsecurity).
 
-For additional details and configurations, refer to the Dockerfile and the accompanying [`docker-init.sh`](docker-init.sh) and [`healthcheck.sh`](yyyyyy) scripts provided with this container.
+For additional details and configurations, refer to the Dockerfile and the accompanying [`docker-init.sh`](docker-init.sh) and [`healthcheck.sh`](healthcheck.sh) scripts provided with this container.
