@@ -1,5 +1,7 @@
 # Hotspot 2.0 Docker Container: HostAPD + DHCP Server
 
+[![Sponsor](https://img.shields.io/badge/Sponsor-Click%20Here-ff69b4)](https://github.com/sponsors/simeononsecurity) 
+
 This Docker container facilitates the deployment of a wireless access point (hostap) and DHCP server, supporting Hotspot 2.0 on Linux systems. It is designed to operate in both host networking mode and with the network interface attached directly to the container's network namespace.
 
 **This is an advanced docker container**
