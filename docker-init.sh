@@ -109,6 +109,7 @@ fi
 : ${RRM_BEACON_REPORT:=1}
 : ${WPA_DISABLE_EAPOL_KEY_RETRIES:=1}
 : ${WPA_KEY_MGMT:=WPA-EAP WPA-EAP-SHA256}
+: ${WPA_PASSPHRASE:=0}
 : ${OKC:=0}
 : ${DISABLE_PMKSA_CACHING:=1}
 : ${IEEE80211W:=1}
@@ -212,6 +213,7 @@ ieee8021x=${IEEE8021X}
 auth_algs=${AUTH_ALGS}
 wpa=${WPA}
 wpa_pairwise=${WPA_PAIRWISE}
+wpa_passphrase=${WPA_PASSPHRASE}
 ssid=${SSID}
 
 ${BRIDGE+"bridge=${BRIDGE}"}
